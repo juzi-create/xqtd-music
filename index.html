@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>崩铁音乐站</title>
+    <!-- 样式都在 style.css 里 -->
+    <link rel="stylesheet" href="style.css">
+</head><body>
+    <div id="stars"></div>
+
+    <!-- 进入界面 -->
+    <div id="entry-screen" class="entry">
+        <div class="logo"><img class="logo-img" src="image_cut.png" alt=""></div>
+        <h1 class="entry-title">崩坏：星穹铁道 音乐站</h1>
+        <p class="subtitle">HONKAI: STAR RAIL MUSIC</p>
+        <button type="button" class="entry-btn" onclick="enterSite()">点击启程</button>
+        <!-- 版权声明：粉丝二创项目，按米哈游二创政策注明非官方 + 版权归属 -->
+        <p class="entry-copy">本站为粉丝自建的非商业网站，与米哈游官方无关联；游戏、音乐及图片版权归 ©miHoYo 所有</p>
+    </div>
+
+    <div class="player">
+        <!-- ============ 首页：标题 + 搜索 + 分类卡片 ============ -->
+        <section id="home-view">
+            <header class="player-header">
+                <h1>崩坏：星穹铁道 音乐站</h1>
+                <p class="subtitle">HONKAI: STAR RAIL MUSIC</p>
+            </header>
+
+            <div class="search-row">
+                <input type="text" id="search" class="search-box" placeholder="曲库内搜索歌名 / 歌手 / 角色…" onkeydown="if(event.key==='Enter')searchLib()">
+                <button type="button" class="search-btn" onclick="searchLib()">搜索</button>
+            </div>
+
+            <div class="category-grid" id="category-grid"></div>
+        </section>
+
+        <!-- ============ 分类页：返回 + 歌单 ============ -->
+        <section id="list-view" class="hidden">
+            <div class="list-header">
+                <button type="button" class="back-btn" onclick="showHome()">← 返回</button>
+                <div class="list-title-box">
+                    <h2 id="list-title"></h2>
+                    <p class="list-sub" id="list-sub"></p>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <!-- 表头由 JS 生成：角色PV分类会多出「PV角色」一列 -->
+                        <tr id="list-head"></tr>
+                    </thead>
+                    <!-- 行由 JS 根据歌单数据自动生成 -->
+                    <tbody id="song-list"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============ 全局播放条：固定挂在页面最底部，切换页面音乐不断 ============ -->
+    <footer class="now-playing">
+            <div class="np-top">
+                <div class="eq" id="eq"><span></span><span></span><span></span></div>
+                <span id="now-text">当前没有播放歌曲</span>
+                <button type="button" class="pause-btn" id="pause-btn" onclick="togglePlay()">⏸</button>
+            </div>
+            <div class="np-bottom">
+                <span class="time" id="cur-time">0:00</span>
+                <input type="range" id="progress" class="progress-bar" min="0" max="100" value="0" step="0.1">
+                <span class="time" id="dur-time">0:00</span>
+                <span class="vol-icon">🔊</span>
+                <input type="range" id="volume" class="vol-bar" min="0" max="100" value="100">
+            </div>
+            <!-- 版权声明：常驻页脚，任何页面都看得到 -->
+            <div class="np-copy">非官方网站 · 游戏、音乐及图片版权归 ©miHoYo 所有</div>
+    </footer>
+
+    <!-- 全场只有一个播放器：播哪首歌就把它的 src 换进去 -->
+    <audio id="player"></audio>
+
+    <!-- 歌单数据在 songs.js，功能逻辑在 app.js -->
+    <script src="songs.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
