@@ -7,7 +7,7 @@
             justify-content: center;
             padding: 40px 20px 120px;   /* 底部留出固定播放条的高度，内容不会被挡住 */
             /* 背景图铺满整屏，不随滚动移动；图加载失败时兜底深色 */
-            background: #0f0c29 url('background.png') no-repeat center center fixed;
+            background: #0f0c29 url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
             color: #e8e8f0;
@@ -60,7 +60,7 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             gap: 18px; text-align: center;
             /* 启程屏也用背景图，上面罩一层深色渐变保证标题和按钮清晰 */
-            background: linear-gradient(rgba(6, 6, 15, .5), rgba(6, 6, 15, .72)), url('background.png') no-repeat center center fixed;
+            background: linear-gradient(rgba(6, 6, 15, .5), rgba(6, 6, 15, .72)), url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             transition: opacity .6s;
         }

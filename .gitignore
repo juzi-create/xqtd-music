@@ -3,3 +3,5 @@ _*.js
 _*.bak
 # 本地音乐文件，不入库
 *.mp3
+# 背景原图已压缩成 background.jpg，4.6MB 原图只留在本地
+background.png
